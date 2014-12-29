@@ -1,0 +1,26 @@
+{
+    "name": "nodelle/sockets",
+    "description": "",
+    "authors": [
+        {
+            "name": "Michael Jennings",
+            "email": "michael@nodelle.com"
+        },
+        {
+            "name": "Matthew Collison",
+            "email": "matthew@nodelle.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*",
+        "cboden/ratchet": "0.3.*",
+        "react/zmq": "0.2.*|0.3.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Nodelle\\Sockets": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
