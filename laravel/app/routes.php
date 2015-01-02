@@ -25,9 +25,46 @@ Route::get('/send-message', function()
     $socket->send(json_encode(['message' => 'hello world', 'category' => 'kittensCategory', 'title' => 'Test']));
 });
 
-Route::get('workspace', [
-    'as' => 'workspace.index',
-    'uses' => 'WorkspaceController@index',
+Route::get('login', [
+    'as' => 'auth.login',
+    'uses' => 'AuthController@login'
+]);
+
+Route::post('login', [
+    'as' => 'auth.login',
+    'uses' => 'AuthController@postLogin'
+]);
+
+Route::get('logout', [
+    'as' => 'auth.logout',
+    'uses' => 'AuthController@logout'
+]);
+
+Route::get('register', [
+    'as' => 'auth.register',
+    'uses' => 'AuthController@register',
+]);
+
+Route::post('register', [
+    'as' => 'auth.register',
+    'uses' => 'AuthController@postRegister',
+]);
+
+Route::get('test', function()
+{
+    $user = User::find(2);
+
+    dd($user);
+});
+
+Route::post('api/workspace/{id}/new-node', [
+    'as' => 'api.workspace.newNode',
+    'uses' => 'Api\WorkspaceController@newNode',
+]);
+
+Route::post('api/workspace/{id}/node/{nodeId}/update', [
+    'as' => 'api.workspace.node.update',
+    'uses' => 'Api\WorkspaceController@updateNode',
 ]);
 
 Route::get('workspace/{id}', [

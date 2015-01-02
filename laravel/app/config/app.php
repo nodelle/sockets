@@ -124,6 +124,7 @@ return array(
 
         'Cartalyst\Sentry\SentryServiceProvider',
         'Laracasts\Utilities\UtilitiesServiceProvider',
+        'Michaeljennings\Validation\ValidationServiceProvider',
         'Nodelle\Sockets\SocketsServiceProvider',
 
 	),
@@ -193,7 +194,9 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 
+        'Nodelle'           => 'Nodelle\Sockets\Facades\Nodelle',
         'Sentry'            => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        'Validation'        => 'Michaeljennings\Validation\Facades\Validation',
 
 	),
 

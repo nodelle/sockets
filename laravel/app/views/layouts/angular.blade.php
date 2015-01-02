@@ -21,7 +21,7 @@
 
     <main class="col-sm-10">
         <div class="container-fluid">
-            {{ $content }}
+
         </div>
     </main>
 

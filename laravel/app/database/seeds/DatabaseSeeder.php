@@ -9,9 +9,13 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Eloquent::unguard();
+		Workspace::create([
+            'name' => 'Workspace 1'
+        ]);
 
-		// $this->call('UserTableSeeder');
+        Workspace::create([
+            'name' => 'Workspace 2'
+        ]);
 	}
 
 }

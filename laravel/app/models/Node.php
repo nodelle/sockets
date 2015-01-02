@@ -14,7 +14,7 @@ class Node extends Eloquent {
      *
      * @var array
      */
-    protected $fillable = ['name', 'content', 'left', 'top'];
+    protected $fillable = ['workspace_id', 'name', 'content', 'left', 'top'];
 
     /**
      * The workspace relationship

@@ -18,6 +18,11 @@ class SocketsServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+        $this->app->bind('nodelle', function($app)
+        {
+            return new Nodelle();
+        });
+
 		$this->app['nodelle.server.start'] = $this->app->share(function()
         {
             return new NodelleServerManager();

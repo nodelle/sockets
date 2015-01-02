@@ -18,6 +18,7 @@ class WampServer implements WampServerInterface {
     public function onSubscribe(Conn $conn, $topic)
     {
         $this->subscribedTopics[$topic->getId()] = $topic;
+        echo $topic . "\n";
     }
 
     public function onUnSubscribe(Conn $conn, $topic)
@@ -34,11 +35,11 @@ class WampServer implements WampServerInterface {
         $entryData = json_decode($entry, true);
 
         // If the lookup topic object isn't set there is no one to publish to
-        if (!array_key_exists($entryData['category'], $this->subscribedTopics)) {
+        if (!array_key_exists($entryData['topic'], $this->subscribedTopics)) {
             return;
         }
 
-        $topic = $this->subscribedTopics[$entryData['category']];
+        $topic = $this->subscribedTopics[$entryData['topic']];
 
         // re-send the data to all the clients subscribed to that category
         $topic->broadcast($entryData);
@@ -69,6 +70,7 @@ class WampServer implements WampServerInterface {
         $topic = $this->subscribedTopics[$topic->getId()];
 
         $topic->broadcast(json_encode($event[0]));
+        echo json_encode($event[0]) . "\n";
     }
 
     public function onError(Conn $conn, \Exception $e) {
